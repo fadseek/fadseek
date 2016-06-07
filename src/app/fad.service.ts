@@ -20,7 +20,7 @@ export class FadService{
            new Fad(
            ' One year after woman was mistakenly given someone else’s newborn, her baby comes home - The Washington Post',
            'https://www.washingtonpost.com/news/morning-mix/wp/2016/06/03/one-year-after-woman-was-mistakenly-given-someone-elses-baby-her-baby-comes-home/',
-           '/app/imgs/woman.png',
+           'http://i.imgur.com/OjJPcec.png?1,
             '3'),
            
            new Fad('bears', 'https://www.yahoo.com/', 'http://wwfassets.s3.amazonaws.com/donations/polarbear_500x300_331881.jpg','4'),

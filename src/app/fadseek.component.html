@@ -55,7 +55,7 @@
                     <div *ngIf="fad.found" class="col-md-3 col-sm-6 hero-feature" (click)="flipWidth($event,fad)" >
                         <div (click)="clickedDiv($event)" class="thumbnail" [style.backgroundColor]="fad.selected? '#FAAAAD':'white'">
                             <img src="{{fad.image}}" alt="" *ngIf="!fad.hidden" style="min-width:100%" >
-                            <img src="/app/imgs/backgroundGrey.png" alt="" *ngIf="fad.hidden">
+                            <img src="http://i.imgur.com/nkeBelU.png?1" alt="" *ngIf="fad.hidden">
                             <div class="caption" style="height:70px;overflow:scroll;background:white">
                                 <a href='{{fad.url}}' >{{ fad.title }} {{i}}</a>
                             </div>
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <img src="/app/imgs/backgroundGrey.png" alt="" style="max-height:100px"> <!-- preloading this gif to avoid flicker-->
+                <img src="http://i.imgur.com/nkeBelU.png?1" alt="" style="max-height:100px"> <!-- preloading this gif to avoid flicker-->
                 <p *ngIf="numberOfFadsMerged>0">{{numberOfFadsMerged+1}} fads merged so far
                     
                 <a class="btn btn-primary" href="."  >click here to continue </a></p>
