@@ -22,6 +22,10 @@ export class FadseekAppComponent {
     constructor(fadService: FadService) {
         this.fads = fadService.getFads();
     }
+    avoidPropagation($event){
+        console.log("avoidPropagation", $event);
+        $event.stopPropagation();    
+    }
     flipWidth($event, fad) {
         $event.stopPropagation();
         

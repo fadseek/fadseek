@@ -57,7 +57,7 @@
                             <img src="{{fad.image}}" alt="" *ngIf="!fad.hidden" style="min-width:100%" >
                             <img src="http://i.imgur.com/nkeBelU.png?1" alt="" *ngIf="fad.hidden">
                             <div class="caption" style="height:70px;overflow:scroll;background:white">
-                                <a href='{{fad.url}}' >{{ fad.title }} {{i}}</a>
+                                <a href='{{fad.url}}' (click)="avoidPropagation($event)">{{ fad.title }} {{i}}</a>
                             </div>
                             <div>
                                 <p>
