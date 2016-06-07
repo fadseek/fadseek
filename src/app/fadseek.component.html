@@ -1,3 +1,82 @@
-<h1 (click)="onClick($event)">
-  {{title}}
-</h1>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color: #135084;">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <a class="navbar-brand" href=".">FadSeek</a>
+            <input #search [(ngModel)]="searchText" (keyup)="searchKeyup(search.value)" style="width:120;margin-top:10" type="text" />
+            <button (click)="cancelSearch()" class="glyphicon glyphicon-remove" style="color:9d9d9d; background-color: #135084"></button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Jumbotron Header -->
+    <header class="jumbotron" style="background-color: #fff;" *ngIf="mainPage" >
+        <p style='font-size: 15px'> FadSeek, a social experiment on fads. The fads below have been chosen as the most interesting things on the internet.
+            Do you agree? Can you help us Select related fads and merge them together? Your help is really appreciated
+        </p>
+    </header>
+
+
+    <!-- Title -->
+    <div class="row" *ngIf="mainPage" >
+        <div class="col-lg-12">
+            <h3>Latest Fads</h3>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Page Features -->
+    <form>
+        <div class="form-group">
+            <div class="row text-center">
+                <div *ngFor="let fad of fads; let i = index">
+                    <div *ngIf="fad.found" class="col-md-3 col-sm-6 hero-feature" (click)="flipWidth($event,fad)" >
+                        <div (click)="clickedDiv($event)" class="thumbnail" [style.backgroundColor]="fad.selected? '#FAAAAD':'white'">
+                            <img src="{{fad.image}}" alt="" *ngIf="!fad.hidden" style="min-width:100%" >
+                            <img src="/app/imgs/backgroundGrey.png" alt="" *ngIf="fad.hidden">
+                            <div class="caption" style="height:70px;overflow:scroll;background:white">
+                                <a href='{{fad.url}}' >{{ fad.title }} {{i}}</a>
+                            </div>
+                            <div>
+                                <p>
+                                    <a (click)="clicked($event, fad)" class="btn btn-primary" style="width:100%">{{fad.text}}</a>
+                                </p>
+                                <!--
+                    <p>
+                        <a href="#" class="btn btn-default">More Info</a>
+                    </p>
+                    -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="/app/imgs/backgroundGrey.png" alt="" style="max-height:100px"> <!-- preloading this gif to avoid flicker-->
+                <p *ngIf="numberOfFadsMerged>0">{{numberOfFadsMerged+1}} fads merged so far
+                    
+                <a class="btn btn-primary" href="."  >click here to continue </a></p>
+                
+            </div>
+        </div>
+    </form>

@@ -1,31 +1,68 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Fadseek</title>
-  <base href="/">
-
-  {{#unless environment.production}}
-  <script src="/ember-cli-live-reload.js" type="text/javascript"></script>
-  {{/unless}}
+  <base href="/"> {{#unless environment.production}}
+  <script src="/ember-cli-live-reload.js" type="text/javascript"></script> {{/unless}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Trending Fads">
+  <meta name="author" content="fadSeek">
+  <title>fad experiment</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="css/heroic-features.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body>
+
+<body style="background-color: #f5f5f5">
   <fadseek-app>Loading...</fadseek-app>
 
-  
 
-    {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}}
-    <script>
+
+  <div class="container">
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright &copy; Fadseek 2016</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <!-- /.container -->
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script> {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}}
+  <script>
       System.import('system-config.js').then(function () {
         System.import('main');
       }).catch(console.error.bind(console));
     </script>
 
-  
+
 
 
 
 </body>
+
 </html>
